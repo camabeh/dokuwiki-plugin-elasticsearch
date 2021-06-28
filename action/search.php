@@ -98,7 +98,15 @@ class action_plugin_elasticsearch_search extends DokuWiki_Action_Plugin {
             $QUERY = '*';
         } else {
             if ($this->getConf('fuzzySearch')) {
-                $QUERY = $QUERY . "~" . $this->getConf('fuzzySearchDistance');
+                $words = preg_split('/\s+/', trim($QUERY));
+                $fuzzyMapFn = function($value) {
+                    if (strlen($value) >= 3) {
+                        return $value . "~" . round(strlen($value) / $this->getConf('fuzzySearchDistance'));
+                    } else {
+                        return $value;
+                    }
+                };
+                $QUERY = join(" ", array_map($fuzzyMapFn, $words));
             }
         }
 

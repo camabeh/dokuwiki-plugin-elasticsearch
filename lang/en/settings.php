@@ -15,4 +15,4 @@ $lang['detectTranslation'] = 'Translation plugin support: search in current lang
 $lang['debug']        = 'Log messages to data/cache/debug.log - needs allowdebug enabled';
 $lang['disableQuicksearch'] = 'Disable quick search (page id suggestions)';
 $lang['fuzzySearch'] = 'Enable fuzzy search';
-$lang['fuzzySearchDistance'] = 'Maximum edit distance for fuzzy search';
+$lang['fuzzySearchDistance'] = 'Edit distance for fuzzy search (numberOfCharactersInWord / THIS_VALUE where numberOfCharactersInWord >= 3)';
